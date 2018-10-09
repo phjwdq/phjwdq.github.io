@@ -7,17 +7,17 @@
   
   <title>es6 -- let &amp; const | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="let 命令基本用法let命令，用来声明变量。所声明的变量仅在块级作用域内有效。 不存在变量提升用let命令声明的变量。在声明它之前，不能使用。否则会报错。 暂时性死区let命令声明的变量仅在块级作用域内有效。不受外部的影响 12345678910function letfun() &amp;#123;    let num = 100    if (num) &amp;#123;        console.">
+  <meta name="description" content="let 命令1121221 基本用法let命令，用来声明变量。所声明的变量仅在块级作用域内有效。 不存在变量提升用let命令声明的变量。在声明它之前，不能使用。否则会报错。 暂时性死区let命令声明的变量仅在块级作用域内有效。不受外部的影响 12345678910function letfun() &amp;#123;    let num = 100    if (num) &amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6 -- let &amp; const">
 <meta property="og:url" content="http://yoursite.com/2018/09/28/es-name/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="let 命令基本用法let命令，用来声明变量。所声明的变量仅在块级作用域内有效。 不存在变量提升用let命令声明的变量。在声明它之前，不能使用。否则会报错。 暂时性死区let命令声明的变量仅在块级作用域内有效。不受外部的影响 12345678910function letfun() &amp;#123;    let num = 100    if (num) &amp;#123;        console.">
+<meta property="og:description" content="let 命令1121221 基本用法let命令，用来声明变量。所声明的变量仅在块级作用域内有效。 不存在变量提升用let命令声明的变量。在声明它之前，不能使用。否则会报错。 暂时性死区let命令声明的变量仅在块级作用域内有效。不受外部的影响 12345678910function letfun() &amp;#123;    let num = 100    if (num) &amp;#123;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-09T07:54:08.000Z">
+<meta property="og:updated_time" content="2018-10-09T09:30:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6 -- let &amp; const">
-<meta name="twitter:description" content="let 命令基本用法let命令，用来声明变量。所声明的变量仅在块级作用域内有效。 不存在变量提升用let命令声明的变量。在声明它之前，不能使用。否则会报错。 暂时性死区let命令声明的变量仅在块级作用域内有效。不受外部的影响 12345678910function letfun() &amp;#123;    let num = 100    if (num) &amp;#123;        console.">
+<meta name="twitter:description" content="let 命令1121221 基本用法let命令，用来声明变量。所声明的变量仅在块级作用域内有效。 不存在变量提升用let命令声明的变量。在声明它之前，不能使用。否则会报错。 暂时性死区let命令声明的变量仅在块级作用域内有效。不受外部的影响 12345678910function letfun() &amp;#123;    let num = 100    if (num) &amp;#123;">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,7 +86,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="let-命令"><a href="#let-命令" class="headerlink" title="let 命令"></a>let 命令</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>let命令，用来声明变量。所声明的变量仅在块级作用域内有效。</p>
+        <h1 id="let-命令"><a href="#let-命令" class="headerlink" title="let 命令"></a>let 命令</h1><p>1121221</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>let命令，用来声明变量。所声明的变量仅在块级作用域内有效。</p>
 <h2 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h2><p>用let命令声明的变量。在声明它之前，不能使用。否则会报错。</p>
 <h2 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h2><p>let命令声明的变量仅在块级作用域内有效。不受外部的影响</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">letfun</span></span>() &#123;</span><br><span class="line">    <span class="built_in">let</span> num = 100</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (num) &#123;</span><br><span class="line">        console.log(num) // c</span><br><span class="line"></span><br><span class="line">        <span class="built_in">let</span> num = 500</span><br><span class="line">        console.log(num) // 500</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -115,7 +116,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/28/es-name/" data-id="cjn1fnnbb0000nx7ftmanje35" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/28/es-name/" data-id="cjn1hb93m0002487fxmvpddpt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -124,11 +125,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/10/09/git--基本命令/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/10/09/git--基本命令一/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          git的基本命令
+          git的基本命令一
         
       </div>
     </a>
@@ -173,7 +174,11 @@
       <ul>
         
           <li>
-            <a href="/2018/10/09/git--基本命令/">git的基本命令</a>
+            <a href="/2018/10/09/git--基本命令二/">git的基本命令二</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/09/git--基本命令一/">git的基本命令一</a>
           </li>
         
           <li>
