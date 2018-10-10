@@ -7,17 +7,17 @@
   
   <title>git的基本命令二 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="查看分支查看本地分支 1git branch 查看远程分支 1git branch -r 查看所有分支 1git branch -a 取消操作 取消没有执行git add . 的修改的代码。即取消本地修改的代码  1.1 取消本地修改的代码的所有的代码1git checkout -- . 1.2 取消本地修改的代码的某个文件的代码1git checkout -- 文件路径  取消执行了git ad">
+  <meta name="description" content="查看分支查看本地分支 1git branch 查看远程分支 1git branch -r 查看所有分支 1git branch -a 查看节点1git log 查看节点得到的节点内容（commit之后是版本号）： 注释内容 commit xxxxxxxxxxxxxxxxxxxxxxxxxxMerge:Author:Date: 取消操作取消操作应谨慎执行。特别是在团队共有的分支，万万不可以随意进行取">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git的基本命令二">
 <meta property="og:url" content="http://yoursite.com/2018/10/09/git--基本命令二/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="查看分支查看本地分支 1git branch 查看远程分支 1git branch -r 查看所有分支 1git branch -a 取消操作 取消没有执行git add . 的修改的代码。即取消本地修改的代码  1.1 取消本地修改的代码的所有的代码1git checkout -- . 1.2 取消本地修改的代码的某个文件的代码1git checkout -- 文件路径  取消执行了git ad">
+<meta property="og:description" content="查看分支查看本地分支 1git branch 查看远程分支 1git branch -r 查看所有分支 1git branch -a 查看节点1git log 查看节点得到的节点内容（commit之后是版本号）： 注释内容 commit xxxxxxxxxxxxxxxxxxxxxxxxxxMerge:Author:Date: 取消操作取消操作应谨慎执行。特别是在团队共有的分支，万万不可以随意进行取">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-09T09:45:01.000Z">
+<meta property="og:updated_time" content="2018-10-10T06:20:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git的基本命令二">
-<meta name="twitter:description" content="查看分支查看本地分支 1git branch 查看远程分支 1git branch -r 查看所有分支 1git branch -a 取消操作 取消没有执行git add . 的修改的代码。即取消本地修改的代码  1.1 取消本地修改的代码的所有的代码1git checkout -- . 1.2 取消本地修改的代码的某个文件的代码1git checkout -- 文件路径  取消执行了git ad">
+<meta name="twitter:description" content="查看分支查看本地分支 1git branch 查看远程分支 1git branch -r 查看所有分支 1git branch -a 查看节点1git log 查看节点得到的节点内容（commit之后是版本号）： 注释内容 commit xxxxxxxxxxxxxxxxxxxxxxxxxxMerge:Author:Date: 取消操作取消操作应谨慎执行。特别是在团队共有的分支，万万不可以随意进行取">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -92,20 +92,44 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></table></figure>
 <p>查看所有分支</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
-<h3 id="取消操作"><a href="#取消操作" class="headerlink" title="取消操作"></a>取消操作</h3><ol>
-<li>取消没有执行git add . 的修改的代码。即取消本地修改的代码</li>
+<h3 id="查看节点"><a href="#查看节点" class="headerlink" title="查看节点"></a>查看节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<p>查看节点得到的节点内容（commit之后是版本号）：</p>
+<pre><code>注释内容
+</code></pre><p>commit xxxxxxxxxxxxxxxxxxxxxxxxxx<br>Merge:<br>Author:<br>Date:</p>
+<h3 id="取消操作"><a href="#取消操作" class="headerlink" title="取消操作"></a>取消操作</h3><p>取消操作应谨慎执行。特别是在团队共有的分支，万万不可以随意进行取消操作！！！</p>
+<ol>
+<li>取消没有执行git add . 的修改的代码。<br>即取消本地修改的代码。</li>
 </ol>
-<p>1.1 取消本地修改的代码的所有的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- .</span><br></pre></td></tr></table></figure></p>
-<p>1.2 取消本地修改的代码的某个文件的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- 文件路径</span><br></pre></td></tr></table></figure></p>
+<p>1.1 取消本地修改的代码的所有的代码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- .</span><br></pre></td></tr></table></figure></p>
+<p>1.2 取消本地修改的代码的某个文件的代码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- 文件路径</span><br></pre></td></tr></table></figure></p>
 <ol start="2">
-<li>取消执行了git add . 但是没有执行git commit -m ‘注释’ 的代码。即取消没有提交到本地仓库的缓存区的代码</li>
+<li>取消执行了git add . 但是没有执行git commit -m ‘注释’ 的代码。<br>即取消add到缓存区的代码。</li>
 </ol>
+<p>2.1 取消add到缓存区所有的代码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD</span><br></pre></td></tr></table></figure>
+<p>2.2 取消add到缓存区某个文件的代码。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD 文件路径</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>取消执行了git commit -m ‘注释’ 但是没有执行 git push origin 分支名称 的代码。<br>即取消commit到本地仓库的代码。</li>
+</ol>
+<p>3.1 回退到上一个 提交的节点 代码还是原来你修改的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset 版本号</span><br></pre></td></tr></table></figure>
+<p>3.2 回退到上一个commit节点， 代码也发生了改变，变成上一次的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 版本号</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>取消执行了 git push origin 分支名称 的代码。<br>即取消已经push到远程仓库的代码，还原已经提交的修改。<br>此次操作之前和之后的commit和history都会保留，并且把这次撤销作为一次最新的提交 。</li>
+</ol>
+<p>4.1 撤销前一次 commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert HEAD</span><br></pre></td></tr></table></figure>
+<p>4.2 撤销前前一次 commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert HEAD^</span><br></pre></td></tr></table></figure>
+<p>4.3 撤销指定的版本，撤销也会作为一次提交进行保存。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert 版本号</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/09/git--基本命令二/" data-id="cjn1hkirs0004487fp40sbxjj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/09/git--基本命令二/" data-id="cjn1jj1gq0002vk7fl1v4lv9u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -113,6 +137,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/10/09/es-name/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          es6 -- let &amp; const
+        
+      </div>
+    </a>
   
   
     <a href="/2018/10/09/git--基本命令一/" id="article-nav-older" class="article-nav-link-wrap">
@@ -154,15 +187,15 @@
       <ul>
         
           <li>
+            <a href="/2018/10/09/es-name/">es6 -- let &amp; const</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/09/git--基本命令二/">git的基本命令二</a>
           </li>
         
           <li>
             <a href="/2018/10/09/git--基本命令一/">git的基本命令一</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/28/es-name/">es6 -- let &amp; const</a>
           </li>
         
           <li>

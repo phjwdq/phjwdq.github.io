@@ -62,6 +62,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-es-name" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/09/es-name/" class="article-date">
+  <time datetime="2018-10-09T09:30:39.000Z" itemprop="datePublished">2018-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/09/es-name/">es6 -- let &amp; const</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="let-命令"><a href="#let-命令" class="headerlink" title="let 命令"></a>let 命令</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>let命令，用来声明变量。所声明的变量仅在块级作用域内有效。</p>
+<h2 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h2><p>用let命令声明的变量。在声明它之前，不能使用。否则会报错。</p>
+<h2 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h2><p>let命令声明的变量仅在块级作用域内有效。不受外部的影响</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">letfun</span></span>() &#123;</span><br><span class="line">    <span class="built_in">let</span> num = 100</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (num) &#123;</span><br><span class="line">        console.log(num) // c</span><br><span class="line"></span><br><span class="line">        <span class="built_in">let</span> num = 500</span><br><span class="line">        console.log(num) // 500</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h2><p>在相同的作用域内，let不允许重复声明同一个变量。</p>
+<h1 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h1><p>ES6 允许块级作用域的任意嵌套。内层作用域可以定义外层作用域的同名变量。外层作用域无法读取内层作用域的变量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;</span><br><span class="line">    <span class="built_in">let</span> outstr = <span class="string">'out string'</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">let</span> outstr = <span class="string">'new out string'</span></span><br><span class="line">        <span class="built_in">let</span> newstr = <span class="string">'new string'</span></span><br><span class="line">    &#125;</span><br><span class="line">    console.log(newstr) // 报错</span><br><span class="line">&#125;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，块级作用域使得立即执行函数表达式（闭包函数）不再必须。因为，闭包的内部变量，外部不能访问。</p>
+<p>再则，考虑到环境导致的行为差异太大，应该避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 函数声明语句</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">let</span> str = <span class="string">'Today is sunny'</span></span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">fun</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> str</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 函数表达式</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">let</span> str = <span class="string">'Today is sunny'</span></span><br><span class="line">    <span class="built_in">let</span> fun = <span class="keyword">function</span> <span class="function"><span class="title">fun</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> str</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：ES6 的块级作用域允许声明函数的规则，只在使用大括号的情况下成立，如果没有使用大括号，就会报错。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 不报错</span><br><span class="line"><span class="string">'use strict'</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">fun</span></span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line"><span class="string">'use strict'</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">fun</span></span>() &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="const-命令"><a href="#const-命令" class="headerlink" title="const 命令"></a>const 命令</h1><h2 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h2><p>const 声明一个只读的常量。一旦声明，常量的值就不能改变。<br>这也意味着，const一旦声明变量，就必须立即初始化，不能留到以后赋值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const PI = 3.14;</span><br><span class="line">console.log(PI) // 3.14</span><br><span class="line">PI = 3 // TypeError: Assignment to constant variable.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const foo;</span><br><span class="line">// SyntaxError: Missing initializer <span class="keyword">in</span> const declaration</span><br></pre></td></tr></table></figure>
+<p>另外，const命令和let命令有相同之处：</p>
+<ol>
+<li>const作用域只在声明所在的块级作用域内有效。</li>
+<li>const命令声明的常量不存在变量提升，同样存在暂时性死区，只能在声明的位置后面使用。</li>
+<li>const声明的常量不可重复声明。</li>
+</ol>
+<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。<br>对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指向实际数据的指针，const只能保证这个指针是固定的（即总是指向另一个固定的地址），至于它指向的数据结构是不是可变的，就完全不能控制了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const foo = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">// 为 foo 添加一个属性，可以成功</span><br><span class="line">foo.prop = 123;</span><br><span class="line">foo.prop // 123</span><br><span class="line"></span><br><span class="line">// 将 foo 指向另一个对象，就会报错</span><br><span class="line">foo = &#123;&#125;; // TypeError: <span class="string">"foo"</span> is <span class="built_in">read</span>-only</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const a = [];</span><br><span class="line">a.push(<span class="string">'Hello'</span>); // 可执行</span><br><span class="line">a.length = 0;    // 可执行</span><br><span class="line">a = [<span class="string">'Dave'</span>];    // 报错</span><br></pre></td></tr></table></figure>
+<p>如果真的想将对象冻结，应该使用Object.freeze方法。 对象的属性也应该冻结</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>初学习ES6，参考阮一峰的<a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6 入门</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/09/es-name/" data-id="cjn1jj1gi0000vk7fwnvtzvql" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git--基本命令二" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/09/git--基本命令二/" class="article-date">
@@ -90,20 +151,44 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></table></figure>
 <p>查看所有分支</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
-<h3 id="取消操作"><a href="#取消操作" class="headerlink" title="取消操作"></a>取消操作</h3><ol>
-<li>取消没有执行git add . 的修改的代码。即取消本地修改的代码</li>
+<h3 id="查看节点"><a href="#查看节点" class="headerlink" title="查看节点"></a>查看节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<p>查看节点得到的节点内容（commit之后是版本号）：</p>
+<pre><code>注释内容
+</code></pre><p>commit xxxxxxxxxxxxxxxxxxxxxxxxxx<br>Merge:<br>Author:<br>Date:</p>
+<h3 id="取消操作"><a href="#取消操作" class="headerlink" title="取消操作"></a>取消操作</h3><p>取消操作应谨慎执行。特别是在团队共有的分支，万万不可以随意进行取消操作！！！</p>
+<ol>
+<li>取消没有执行git add . 的修改的代码。<br>即取消本地修改的代码。</li>
 </ol>
-<p>1.1 取消本地修改的代码的所有的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- .</span><br></pre></td></tr></table></figure></p>
-<p>1.2 取消本地修改的代码的某个文件的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- 文件路径</span><br></pre></td></tr></table></figure></p>
+<p>1.1 取消本地修改的代码的所有的代码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- .</span><br></pre></td></tr></table></figure></p>
+<p>1.2 取消本地修改的代码的某个文件的代码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- 文件路径</span><br></pre></td></tr></table></figure></p>
 <ol start="2">
-<li>取消执行了git add . 但是没有执行git commit -m ‘注释’ 的代码。即取消没有提交到本地仓库的缓存区的代码</li>
+<li>取消执行了git add . 但是没有执行git commit -m ‘注释’ 的代码。<br>即取消add到缓存区的代码。</li>
 </ol>
+<p>2.1 取消add到缓存区所有的代码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD</span><br></pre></td></tr></table></figure>
+<p>2.2 取消add到缓存区某个文件的代码。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD 文件路径</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>取消执行了git commit -m ‘注释’ 但是没有执行 git push origin 分支名称 的代码。<br>即取消commit到本地仓库的代码。</li>
+</ol>
+<p>3.1 回退到上一个 提交的节点 代码还是原来你修改的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset 版本号</span><br></pre></td></tr></table></figure>
+<p>3.2 回退到上一个commit节点， 代码也发生了改变，变成上一次的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 版本号</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>取消执行了 git push origin 分支名称 的代码。<br>即取消已经push到远程仓库的代码，还原已经提交的修改。<br>此次操作之前和之后的commit和history都会保留，并且把这次撤销作为一次最新的提交 。</li>
+</ol>
+<p>4.1 撤销前一次 commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert HEAD</span><br></pre></td></tr></table></figure>
+<p>4.2 撤销前前一次 commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert HEAD^</span><br></pre></td></tr></table></figure>
+<p>4.3 撤销指定的版本，撤销也会作为一次提交进行保存。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert 版本号</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/09/git--基本命令二/" data-id="cjn1hkirs0004487fp40sbxjj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/09/git--基本命令二/" data-id="cjn1jj1gq0002vk7fl1v4lv9u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +227,7 @@
 <p>修改代码后，提交代码。</p>
 <h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">'注释代码的功能'</span></span><br><span class="line">git push origin 分支名称</span><br></pre></td></tr></table></figure>
 <p>以上命令含义：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br><span class="line">// 把本地代码提交到缓存区</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">'注释代码的功能'</span></span><br><span class="line">// 把缓存区的代码的提交到本地仓库</span><br><span class="line"></span><br><span class="line">git push origin 分支名称</span><br><span class="line">// 把本地仓库的的代码推到远程仓库</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br><span class="line">// 把本地代码提交到缓存区</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">'注释代码的功能'</span></span><br><span class="line">// 把缓存区的代码提交到本地仓库</span><br><span class="line"></span><br><span class="line">git push origin 分支名称</span><br><span class="line">// 把本地仓库的代码推到远程仓库</span><br></pre></td></tr></table></figure>
 <p>当自己分支的代码需要提到测试时，切换到测试分支</p>
 <h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 需要切换到的分支名称</span><br></pre></td></tr></table></figure>
 <p>一般测试分支也合并着团队成员的代码。所以，自己分支的代码合并到test(例如测试分支名是test)，需要拉取远程的test分支到本地的test，避免有冲突</p>
@@ -156,69 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/09/git--基本命令一/" data-id="cjn1hczp90003487fb6ykxaw8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-es-name" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/28/es-name/" class="article-date">
-  <time datetime="2018-09-28T02:14:21.000Z" itemprop="datePublished">2018-09-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/28/es-name/">es6 -- let &amp; const</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="let-命令"><a href="#let-命令" class="headerlink" title="let 命令"></a>let 命令</h1><p>1121221</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>let命令，用来声明变量。所声明的变量仅在块级作用域内有效。</p>
-<h2 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h2><p>用let命令声明的变量。在声明它之前，不能使用。否则会报错。</p>
-<h2 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h2><p>let命令声明的变量仅在块级作用域内有效。不受外部的影响</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">letfun</span></span>() &#123;</span><br><span class="line">    <span class="built_in">let</span> num = 100</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (num) &#123;</span><br><span class="line">        console.log(num) // c</span><br><span class="line"></span><br><span class="line">        <span class="built_in">let</span> num = 500</span><br><span class="line">        console.log(num) // 500</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h2><p>在相同的作用域内，let不允许重复声明同一个变量。</p>
-<h1 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h1><p>ES6 允许块级作用域的任意嵌套。内层作用域可以定义外层作用域的同名变量。外层作用域无法读取内层作用域的变量。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#123;&#123;</span><br><span class="line">    <span class="built_in">let</span> outstr = <span class="string">'out string'</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">let</span> outstr = <span class="string">'new out string'</span></span><br><span class="line">        <span class="built_in">let</span> newstr = <span class="string">'new string'</span></span><br><span class="line">    &#125;</span><br><span class="line">    console.log(newstr) // 报错</span><br><span class="line">&#125;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>另外，块级作用域使得立即执行函数表达式（闭包函数）不再必须。因为，闭包的内部变量，外部不能访问。</p>
-<p>再则，考虑到环境导致的行为差异太大，应该避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 函数声明语句</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">let</span> str = <span class="string">'Today is sunny'</span></span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">fun</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> str</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 函数表达式</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">let</span> str = <span class="string">'Today is sunny'</span></span><br><span class="line">    <span class="built_in">let</span> fun = <span class="keyword">function</span> <span class="function"><span class="title">fun</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> str</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：ES6 的块级作用域允许声明函数的规则，只在使用大括号的情况下成立，如果没有使用大括号，就会报错。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 不报错</span><br><span class="line"><span class="string">'use strict'</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">fun</span></span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line"><span class="string">'use strict'</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">fun</span></span>() &#123;&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="const-命令"><a href="#const-命令" class="headerlink" title="const 命令"></a>const 命令</h1><h2 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h2><p>const 声明一个只读的常量。一旦声明，常量的值就不能改变。<br>这也意味着，const一旦声明变量，就必须立即初始化，不能留到以后赋值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const PI = 3.14;</span><br><span class="line">console.log(PI) // 3.14</span><br><span class="line">PI = 3 // TypeError: Assignment to constant variable.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const foo;</span><br><span class="line">// SyntaxError: Missing initializer <span class="keyword">in</span> const declaration</span><br></pre></td></tr></table></figure>
-<p>另外，const命令和let命令有相同之处：</p>
-<ol>
-<li>const作用域只在声明所在的块级作用域内有效。</li>
-<li>const命令声明的常量不存在变量提升，同样存在暂时性死区，只能在声明的位置后面使用。</li>
-<li>const声明的常量不可重复声明。</li>
-</ol>
-<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。<br>对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指向实际数据的指针，const只能保证这个指针是固定的（即总是指向另一个固定的地址），至于它指向的数据结构是不是可变的，就完全不能控制了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const foo = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">// 为 foo 添加一个属性，可以成功</span><br><span class="line">foo.prop = 123;</span><br><span class="line">foo.prop // 123</span><br><span class="line"></span><br><span class="line">// 将 foo 指向另一个对象，就会报错</span><br><span class="line">foo = &#123;&#125;; // TypeError: <span class="string">"foo"</span> is <span class="built_in">read</span>-only</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const a = [];</span><br><span class="line">a.push(<span class="string">'Hello'</span>); // 可执行</span><br><span class="line">a.length = 0;    // 可执行</span><br><span class="line">a = [<span class="string">'Dave'</span>];    // 报错</span><br></pre></td></tr></table></figure>
-<p>如果真的想将对象冻结，应该使用Object.freeze方法。 对象的属性也应该冻结</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>初学习ES6，参考阮一峰的<a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6 入门</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/28/es-name/" data-id="cjn1hb93m0002487fxmvpddpt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/09/git--基本命令一/" data-id="cjn1jj1gn0001vk7fp65wharx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -263,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/27/hello-world/" data-id="cjn1hb93f0000487f5rjc0qlw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/27/hello-world/" data-id="cjn1jj1gr0003vk7fidgv7ert" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,15 +327,15 @@
       <ul>
         
           <li>
+            <a href="/2018/10/09/es-name/">es6 -- let &amp; const</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/09/git--基本命令二/">git的基本命令二</a>
           </li>
         
           <li>
             <a href="/2018/10/09/git--基本命令一/">git的基本命令一</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/28/es-name/">es6 -- let &amp; const</a>
           </li>
         
           <li>

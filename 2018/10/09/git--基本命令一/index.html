@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="克隆远程仓库1git clone 仓库地址 在仓库的master分支基础上，新建并且切换自己开发的分支。 新建并且切换到分支（方法一）新建分支，自动切换到该分支1git checkout -b 分支名称 新建分支，切换分支（方法二）新建分支之后，手动切换到该分支12git branch 分支名称git checkout 分支名称 修改代码后，提交代码。 提交代码123git add .git co">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-09T09:18:05.000Z">
+<meta property="og:updated_time" content="2018-10-10T03:46:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git的基本命令一">
 <meta name="twitter:description" content="克隆远程仓库1git clone 仓库地址 在仓库的master分支基础上，新建并且切换自己开发的分支。 新建并且切换到分支（方法一）新建分支，自动切换到该分支1git checkout -b 分支名称 新建分支，切换分支（方法二）新建分支之后，手动切换到该分支12git branch 分支名称git checkout 分支名称 修改代码后，提交代码。 提交代码123git add .git co">
@@ -93,7 +93,7 @@
 <p>修改代码后，提交代码。</p>
 <h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">'注释代码的功能'</span></span><br><span class="line">git push origin 分支名称</span><br></pre></td></tr></table></figure>
 <p>以上命令含义：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br><span class="line">// 把本地代码提交到缓存区</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">'注释代码的功能'</span></span><br><span class="line">// 把缓存区的代码的提交到本地仓库</span><br><span class="line"></span><br><span class="line">git push origin 分支名称</span><br><span class="line">// 把本地仓库的的代码推到远程仓库</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br><span class="line">// 把本地代码提交到缓存区</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">'注释代码的功能'</span></span><br><span class="line">// 把缓存区的代码提交到本地仓库</span><br><span class="line"></span><br><span class="line">git push origin 分支名称</span><br><span class="line">// 把本地仓库的代码推到远程仓库</span><br></pre></td></tr></table></figure>
 <p>当自己分支的代码需要提到测试时，切换到测试分支</p>
 <h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 需要切换到的分支名称</span><br></pre></td></tr></table></figure>
 <p>一般测试分支也合并着团队成员的代码。所以，自己分支的代码合并到test(例如测试分支名是test)，需要拉取远程的test分支到本地的test，避免有冲突</p>
@@ -107,7 +107,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/09/git--基本命令一/" data-id="cjn1hczp90003487fb6ykxaw8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/09/git--基本命令一/" data-id="cjn1jj1gn0001vk7fp65wharx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,9 +126,9 @@
     </a>
   
   
-    <a href="/2018/09/28/es-name/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/09/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">es6 -- let &amp; const</div>
+      <div class="article-nav-title">Hello World</div>
     </a>
   
 </nav>
@@ -165,15 +165,15 @@
       <ul>
         
           <li>
+            <a href="/2018/10/09/es-name/">es6 -- let &amp; const</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/09/git--基本命令二/">git的基本命令二</a>
           </li>
         
           <li>
             <a href="/2018/10/09/git--基本命令一/">git的基本命令一</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/28/es-name/">es6 -- let &amp; const</a>
           </li>
         
           <li>
