@@ -62,6 +62,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-shell--基本命令一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/10/shell--基本命令一/" class="article-date">
+  <time datetime="2018-10-10T08:18:36.000Z" itemprop="datePublished">2018-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/10/shell--基本命令一/">shell基本命令一</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><ol>
+<li>创建一级目录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir 目录名称</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建多级目录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p dir1/dir2</span><br></pre></td></tr></table></figure>
+<p>如果目录 dir1 不存在，那么会创建 dir1 和 dir2 两个目录<br>如果目录 dir1 已经存在，就会创建 dir1 目录下的 dir2 目录</p>
+<h3 id="切换目录"><a href="#切换目录" class="headerlink" title="切换目录"></a>切换目录</h3><ol>
+<li>显示当前目录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>进入指定目录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 目录路径</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>返回上一级目录 (若当前目录为“/“，则执行完后还在“/“；”..”为上级目录的意思)</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>返回上上级目录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../..</span><br></pre></td></tr></table></figure>
+<h3 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r 目录名称</span><br></pre></td></tr></table></figure>
+<h3 id="显示文件"><a href="#显示文件" class="headerlink" title="显示文件"></a>显示文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+<p>另外 ll la l 等是ls的别名</p>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><ol>
+<li>删除文件，不给提示</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm 文件名称</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>删除文件，给出提示</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -i 文件名称</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/10/shell--基本命令一/" data-id="cjn2w9z1m0005p87fvvudqdxu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git--基本命令三" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/10/git--基本命令三/" class="article-date">
@@ -96,7 +167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/10/git--基本命令三/" data-id="cjn2t2wge0003co7fbxznskpp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/10/git--基本命令三/" data-id="cjn2w9z1g0002p87f3jfo4w9n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -157,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/09/es-name/" data-id="cjn2t2wg20000co7ft0rrb6cc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/09/es-name/" data-id="cjn2w9z1b0001p87f52af73bj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -232,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/09/git--基本命令二/" data-id="cjn2t2wgb0002co7fy7jjx1aj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/09/git--基本命令二/" data-id="cjn2w9z140000p87f3bx9n08q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,7 +356,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/09/git--基本命令一/" data-id="cjn2t2wg80001co7fmz04j6yl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/09/git--基本命令一/" data-id="cjn2w9z1j0003p87fld8fu4ud" class="article-share-link">Share</a>
       
       
     </footer>
@@ -330,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/27/hello-world/" data-id="cjn2t2wgg0004co7fv1s6utp4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/27/hello-world/" data-id="cjn2w9z1k0004p87f9ye70ml2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -371,6 +442,10 @@
       <ul>
         
           <li>
+            <a href="/2018/10/10/shell--基本命令一/">shell基本命令一</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/10/git--基本命令三/">git的基本命令三</a>
           </li>
         
@@ -384,10 +459,6 @@
         
           <li>
             <a href="/2018/10/09/git--基本命令一/">git的基本命令一</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/27/hello-world/">Hello World</a>
           </li>
         
       </ul>
